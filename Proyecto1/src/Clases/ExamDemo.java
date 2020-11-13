@@ -9,6 +9,11 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ExamDemo {
+	/**
+	 * procedimiento que hace las ejecuciones de los menu y donde existe
+	 * el menu de admin y el de realizacion de examen
+	 * @throws IOException
+	 */
 	public static void menu() throws IOException {
 		Exam e = new Exam();
 		examenes(e);
@@ -63,6 +68,12 @@ public class ExamDemo {
 		
 	}
 	
+	/**
+	 * procedimiento que muestra el menu de admin y sus opciones donde el admin ingresa la opcion a resolver
+	 * @param sc
+	 * @param e
+	 * @throws IOException
+	 */
 	public static void modoAdmin(Scanner sc,Exam e) throws IOException {
 		boolean ejecuta = true;
 		while(ejecuta) {
@@ -83,6 +94,13 @@ public class ExamDemo {
 		}
 	}
 	
+	/**
+	 * procedimiento que elimina un examen del sistema 
+	 * se pregunta si desea eliminarlo y se elimina (se elimna el archivo del examen) 
+	 * @param e
+	 * @param sc
+	 * @throws IOException
+	 */
 	public static void eliminarExamen(Exam e,Scanner sc) throws IOException {
 		int i;
 		boolean si = false;
@@ -111,6 +129,12 @@ public class ExamDemo {
 		
 	}
 	
+	/**
+	 * lee un examen del archivo correspondiente y la guarda en el sistema para la realizacion de este
+	 * @param nombreExamen
+	 * @param e
+	 * @throws FileNotFoundException
+	 */
 	public static void lecturaExamen(String nombreExamen,Exam e) throws FileNotFoundException {
 		Scanner archivo = new Scanner(new File("archivos/examen_"+nombreExamen+".txt"));
 		while(archivo.hasNextLine()) {
@@ -137,6 +161,11 @@ public class ExamDemo {
 		archivo.close();
 	}
 	
+	/**
+	 * muestra los resultados de los examenes hechos de un archivo en el cual estan los resultados
+	 * de cada usuario y la prueba hecha
+	 * @throws FileNotFoundException
+	 */
 	public static void resultadosExamenes() throws FileNotFoundException {
 		Scanner archivo = new Scanner(new File("archivos/puntajes_usuarios.txt"));
 		while(archivo.hasNextLine()) {
@@ -145,6 +174,11 @@ public class ExamDemo {
 			System.out.println("nombre de la prueba : "+parte[2]+" | usuario : "+parte[0] + " | porcentaje obtenido : "+parte[1]+"%");
 		}
 	}
+	/**
+	 * lee el archivo con los nombre de los examenes y los guarda en el sistema
+	 * @param examen
+	 * @throws FileNotFoundException
+	 */
 	public static void examenes(Exam examen) throws FileNotFoundException {
 		Scanner archivo = new Scanner(new File("archivos/examenes.txt"));
 		while(archivo.hasNextLine()) {
@@ -153,6 +187,13 @@ public class ExamDemo {
 		}
 		archivo.close();
 	}
+	/**
+	 * guarda el examen nuevo en un archivo nuevo generado con la estructura
+	 * predifinada para la lectura del mismo al ser seleccionado
+	 * @param examen
+	 * @param nombreExamen
+	 * @throws IOException
+	 */
 	public static void archivoExamen(Exam examen,String nombreExamen) throws IOException {
 		FileWriter ficheroExamen = new FileWriter("archivos/examenes.txt",true);
 		PrintWriter archivoExamen = new PrintWriter(ficheroExamen);
@@ -190,6 +231,13 @@ public class ExamDemo {
 	}
 	
 	
+	/**
+	 * menu donde se crea un nuevo examen se muestra la opciones de los tipo de pregunta a incluir
+	 * y el admin debe ingresar la opcion pertinente
+	 * @param sc
+	 * @param examen
+	 * @throws IOException
+	 */
 	public static void crearExamen(Scanner sc,Exam examen) throws IOException {
 		System.out.println("----------------------------------");
 		System.out.println("       CREACION DE EXAMEN          ");
@@ -232,6 +280,13 @@ public class ExamDemo {
 		examen.getPreguntas().clear();
 		
 	}
+	/**
+	 * en este caso guarda el puntaje, nombre y la prueba del usuario que 
+	 * realiza el examen en el archivo correspondiente 
+	 * @param u
+	 * @param nombrePrueba
+	 * @throws IOException
+	 */
 	public static void archivoUsuarios(Usuario u,String nombrePrueba) throws IOException {
 		FileWriter fichero = new FileWriter("archivos/puntajes_usuarios.txt",true);
 		PrintWriter archivo = new PrintWriter(fichero);
@@ -239,6 +294,13 @@ public class ExamDemo {
 		fichero.close();
 		archivo.close();
 	}
+	
+	/**
+	 * procedimiento que solo toma los valores requeridos para la creacion de una
+	 * pregunta de tipo verdadero y falso, donde procede a crearlo y guardarlo en el sistema
+	 * @param sc
+	 * @param examen
+	 */
 	public static void preguntaTF(Scanner sc,Exam examen) {
 		System.out.println("ingrese el contenido de la pregunta en cuestion : ");
 		String text = sc.nextLine();
@@ -272,6 +334,12 @@ public class ExamDemo {
 
 	}
 	
+	/**
+	 * procedimiento que pregunta lo correspondiente para la creacion de una pregunta corta
+	 * donde lo crea y lo guarda en el sistema
+	 * @param sc
+	 * @param exam
+	 */
 	public static void preguntaCorta(Scanner sc,Exam exam) {
 		System.out.println("ingrese el contenido de la pregunta en cuestion : ");
 		String text = sc.nextLine();
@@ -291,6 +359,12 @@ public class ExamDemo {
 	
 	}
 	
+	/**
+	 * procedimiento que pregunta lo necesario para la creacion de una nueva pregunta de seleccion
+	 * multiple, donde lo crea y lo guarda en el sistema
+	 * @param sc
+	 * @param exam
+	 */
 	public static void preguntaSelecMul(Scanner sc,Exam exam) {
 		System.out.println("ingrese el contenido de la pregunta en cuestion : ");
 		String text = sc.nextLine();

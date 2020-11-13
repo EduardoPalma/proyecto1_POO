@@ -42,15 +42,19 @@ public class TFpregunta extends Pregunta {
 			if(respuesta.equalsIgnoreCase("f") && this.respuestaCorrecta == false) {
 				return true;
 			}else {
-				int intentos = 0;
+				int intentos = 1;
+				sc.nextLine();
 				while(!respuesta.equalsIgnoreCase("t") && !respuesta.equalsIgnoreCase("f") && intentos < 3) {
 					System.out.println("debe ingresar T o F !!!");
 					System.out.print("  ingrese  (T o F ): " );
 					respuesta = sc.nextLine();
 					if(respuesta.equalsIgnoreCase("t") && this.respuestaCorrecta) return true;
-					else if(respuesta.equalsIgnoreCase("f") && this.respuestaCorrecta == false) return true;
-					intentos++;
+					else {
+						if(respuesta.equalsIgnoreCase("f") && this.respuestaCorrecta == false) return true;
+						else intentos++;
+					}
 				}
+				if(intentos == 3) System.out.println("   VUELVA A ESTUDIAR !!!!");
 				return false;
 			}
 		}

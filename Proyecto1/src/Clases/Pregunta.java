@@ -19,14 +19,26 @@ public abstract class Pregunta {
 		this.peso = peso;
 	}
 
+	/**
+	 * metedo que retorna el contenido de la pregunta
+	 * @return text
+	 */
 	public String getText() {
 		return text;
 	}
 
+	/**
+	 * metodo que retorna el peso de la pregunta (puntaje)
+	 * @return
+	 */
 	public int getPeso() {
 		return peso;
 	}
 
+	/**
+	 * metodo que cambia el peso de la pregunta (puntaje)
+	 * @param peso
+	 */
 	public void setPeso(int peso) {
 		this.peso = peso;
 	}

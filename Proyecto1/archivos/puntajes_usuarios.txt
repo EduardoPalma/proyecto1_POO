@@ -8,3 +8,9 @@ juan zuñiga,100,Biologia
 rubi ortiz,100,matematica
 Eduardo palma,33,matematica
 liseete,50,Biologia
+Matias Valeria,86,matematica
+matias zuñiga,100,matematica
+adasd,0,matematica
+edad,19,matematica
+Eduardo Palma,100,matematica
+matias rubio,100,matematica

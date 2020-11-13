@@ -2,6 +2,12 @@ package Clases;
 
 import java.util.ArrayList;
 
+/**
+ * clase examen que hace los requerimientos esenciales y las inicializacion de las variables
+ * a guardar 
+ * @author hello
+ *
+ */
 public class Exam implements ExamI {
 	private static final String CODIGOADMIN = "ABCDT";
 	private ArrayList<String> namExam;
@@ -9,6 +15,10 @@ public class Exam implements ExamI {
 	private ArrayList<Usuario> usuarios;
 	private int contador;
 	
+	/**
+	 * constructor de la clase Exam
+	 * inicializa las variables
+	 */
 	public Exam() {
 		this.namExam = new ArrayList<String>();
 		this.preguntas = new ArrayList<Pregunta>();
@@ -16,19 +26,34 @@ public class Exam implements ExamI {
 		this.contador = 0;
 	}
 	
+	/**
+	 * metodo que retorna el contador de preguntas del examen
+	 * @return
+	 */
 	public int getContador() {
 		return contador;
 	}
 	
+	/**
+	 * metodo que ingresa el nombre de un examen al sistema
+	 * @param nombreExamen
+	 */
 	public void agregarNombrExamen(String nombreExamen) {
 		this.namExam.add(nombreExamen);
 	}
+
 	@Override
 	public boolean agregarUsuario(Usuario u) {
 		this.usuarios.add(u);
 		return true;
 	}
 	
+	/**
+	 * metodo para verificar que el usuario es administrador o va admnistrar los examenes
+	 * return true si es correcto el codigo de ingreso en caso contrario false
+	 * @param codigo
+	 * @return boolean
+	 */
 	public boolean admin(String codigo) {
 		if(CODIGOADMIN.equals(codigo)) return true;
 		else return false;
@@ -91,31 +116,27 @@ public class Exam implements ExamI {
 		return (int) resultado;
 	}
 
+	/**
+	 * metodo que retorna la lista de usuarios
+	 * @return
+	 */
 	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
 	}
 
-	public void setUsuarios(ArrayList<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
+	/**
+	 * metodo que retorna la lista de preguntas del examen
+	 * @return Arraylist
+	 */
 	public ArrayList<Pregunta> getPreguntas() {
 		return preguntas;
 	}
 
-	public void setPreguntas(ArrayList<Pregunta> preguntas) {
-		this.preguntas = preguntas;
-	}
-
+	/**
+	 * metodo que retorna la lista de nombre de examenes en el sistema
+	 * @return
+	 */
 	public ArrayList<String> getNamExam() {
 		return namExam;
-	}
-
-	public void setNamExam(ArrayList<String> namExam) {
-		this.namExam = namExam;
-	}
-
-	public void setContador(int contador) {
-		this.contador = contador;
 	}
 }
