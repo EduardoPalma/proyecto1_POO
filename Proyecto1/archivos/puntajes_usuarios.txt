@@ -1,0 +1,10 @@
+Eduardo Palma,100,matematica
+Eduardo Palma,86,matematica
+maria solar,100,Biologia
+pedro aguirre,33,matematica
+pedro aquirre,38,Biologia
+martin padriras,100,matematica
+juan zuñiga,100,Biologia
+rubi ortiz,100,matematica
+Eduardo palma,33,matematica
+liseete,50,Biologia
