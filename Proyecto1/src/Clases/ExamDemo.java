@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * clase testeadora para el desarrollo del proyecto
+ * @author hello
+ *
+ */
 public class ExamDemo {
 	/**
 	 * procedimiento que hace las ejecuciones de los menu y donde existe
