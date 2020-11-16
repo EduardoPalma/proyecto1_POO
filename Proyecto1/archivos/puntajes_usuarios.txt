@@ -14,3 +14,4 @@ adasd,0,matematica
 edad,19,matematica
 Eduardo Palma,100,matematica
 matias rubio,100,matematica
+Eduardo Palma,100,Biologia

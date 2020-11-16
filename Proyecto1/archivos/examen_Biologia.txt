@@ -1,0 +1,3 @@
+PTF,altura de un perro es 40 sem,5,true
+PC,perro color cafe,6,negro
+PSM,mayoria de color de ojos de los humanos es ,10,0,3,negro,cafe,azul
