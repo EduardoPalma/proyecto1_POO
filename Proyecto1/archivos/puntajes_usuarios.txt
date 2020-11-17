@@ -15,3 +15,9 @@ edad,19,matematica
 Eduardo Palma,100,matematica
 matias rubio,100,matematica
 Eduardo Palma,100,Biologia
+Eduardo Palma,100,matematica
+Matias Zuñiga,76,Biologia
+Juan zuñiga,14,matematica
+Mauricio Pinilla,55,Geografia
+Maria Jose,0,Geografia
+Maria jose,20,Geografia

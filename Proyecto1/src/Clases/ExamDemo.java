@@ -50,7 +50,7 @@ public class ExamDemo {
 					System.out.println();
 					if(si) {
 						lecturaExamen(e.getNamExam().get(i),e);
-						System.out.print("ingrese nombre completo para empezar la prueba : ");
+						System.out.print("ingrese su nombre completo para empezar la prueba : ");
 						String nombreUsuario = sc.nextLine();
 						Usuario u = new Usuario(nombreUsuario);
 						System.out.println();
@@ -248,26 +248,30 @@ public class ExamDemo {
 		System.out.println("       CREACION DE EXAMEN          ");
 		System.out.print(" ingrese nombre del examen : ");
 		String nombre = sc.nextLine();
-		System.out.println("el examen consta de maximo 10 preguntas ");
+		System.out.println("EL EXAMEN CONSTA DE MAXIMO 10 PREGUNTAS  ");
 		int cant = 0;
 		int sigue = 1;
 		while(cant < 10 && sigue == 1) {
+			System.out.println("--------------------------------------");
 			System.out.println("  Pregunta de Verdadero y Falso   (1)");
 			System.out.println("  Preguntas Cortas                (2)");
 			System.out.println("  Preguntas de Seleccion Multiple (3)");
 			System.out.print("  ingrese el numero de la pregunta a ingresar (4 para terminar) : ");
 			String sPregunta = sc.nextLine();
 			if(sPregunta.equals("1")) {
+				System.out.println("--------------------------------------");
 				System.out.println(" \n   Pregunta de Verdadero y Falso ");
 				preguntaTF(sc,examen);
 				cant++;
 			}else {
 				if(sPregunta.equals("2")) {
+					System.out.println("--------------------------------------");
 					System.out.println(" \n   Pregunta Corta ");
 					preguntaCorta(sc,examen);
 					cant++;
 				}else {
 					if(sPregunta.equals("3")) {
+						System.out.println("--------------------------------------");
 						System.out.println(" \n   Pregunta de Seleccion Multiple ");
 						preguntaSelecMul(sc,examen);
 						cant++;
@@ -382,33 +386,45 @@ public class ExamDemo {
 			peso = 7;
 		}
 		sc.nextLine();
+		System.out.println("--------------------------------------");
 		System.out.println("ingrese las respuestas para la pregunta de seleccion multiple");
-		System.out.println("minima de alternativas = 2");
-		System.out.println("maxima de alternativas = 6");
+		System.out.print("MIN alternativas = 2");
+		System.out.println(" MAX alternativas = 6");
+		System.out.println("--------------------------------------");
 		String [] respuestas = new String[6];
 		String sn;
-		for(int i=0;i<6;i++) {
-			System.out.println("ingrese alternativa : ");
+		int i;
+		for(i=0;i<6;i++) {
+			System.out.print("ingrese alternativa N°"+(i+1)+": ");
 			String respuesta = sc.nextLine();
 			respuestas[i] = respuesta;
-			if(i>=2) {
+			if(i>=1 && i < 5) {
 				System.out.println("desea seguir agregando alternativas (S/N)");
 				sn = sc.nextLine();
-				if(sn.equalsIgnoreCase("N")) break;
+				if(sn.equalsIgnoreCase("N")) {
+					i++;
+					break;
+				}
 			}
 		}
 		int posRepuesta;
 		try {
-			System.out.print("ingrese la posicion de la altarnativa correcta : ");
+			System.out.print("ingrese la posicion de la altarnativa correcta [1 a "+i+"]: ");
 			posRepuesta = sc.nextInt();
+			if(posRepuesta < 1 || posRepuesta > i) {
+				System.out.println("   posicion ingresada no es valida se toma como pos 1 la correcta");
+				posRepuesta = 1;
+			}
+			sc.nextLine();
+			Pregunta p = new PreguntSelecMul(text,peso,respuestas,posRepuesta-1);
+			exam.agregarPregunta(p);
 		}catch (Exception e) {
-			System.out.println("el valor ingresado debe ser un numero por defecto se le ingresara la posicion 0");
+			System.out.println("el valor ingresado debe ser un numero por defecto se le ingresara la posicion 1");
 			posRepuesta = 0;
+			sc.nextLine();
+			Pregunta p = new PreguntSelecMul(text,peso,respuestas,posRepuesta-1);
+			exam.agregarPregunta(p);
 		}
-		sc.nextLine();
-		Pregunta p = new PreguntSelecMul(text,peso,respuestas,posRepuesta);
-		exam.agregarPregunta(p);
-		
 	}
 	
 	public static void main(String [] args) throws IOException {

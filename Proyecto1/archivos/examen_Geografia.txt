@@ -1,0 +1,2 @@
+PSM,capital de coquimbo,5,0,6,la serena,illapel,coquimbo,salamnca,vicuña,ovalle
+PSM,provincias de la region de coquimbo,20,0,3,elqui,limari,choapa,elqui,huasco,rio del carmen,limari,elqui,conbarbala
