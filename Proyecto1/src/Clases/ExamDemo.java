@@ -27,6 +27,7 @@ public class ExamDemo {
 		while(ejecuta) {
 			System.out.println("------------------------------------");
 			System.out.println(" BIENVENIDO A SISTEMA DE EXAMENES ");
+			System.out.println(" PARA MODO ADMINISTRADOR INGRESE CODIGO ");
 			System.out.print("    desea hacer un examen (S/N) : ");
 			String codigo = sc.nextLine();
 			if(e.admin(codigo)) {

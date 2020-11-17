@@ -21,3 +21,7 @@ Juan zuñiga,14,matematica
 Mauricio Pinilla,55,Geografia
 Maria Jose,0,Geografia
 Maria jose,20,Geografia
+juan ortiz,80,Geografia
+luciano,51,matematica
+sebastian araya,38,Geografia
+Eduardo Palma,25,Geografia
