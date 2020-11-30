@@ -33,7 +33,7 @@ public class PregunCortas extends Pregunta {
 		System.out.print(text + ": ");
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		String respuesta = sc.next();
+		String respuesta = sc.nextLine();
 		if(respuesta.equalsIgnoreCase(this.respuesta)) return true;
 		else return false;
 	}
